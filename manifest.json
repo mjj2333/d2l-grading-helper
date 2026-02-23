@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "D2L Grading Helper",
+  "version": "3.5.0",
+  "description": "Course/assignment-specific feedback checklist, level-based overall comments, Next Steps, master CSV import/export, auto-detection, and auto-pasting into Overall Feedback in D2L.",
+  "author": "David",
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "permissions": [],
+
+  "host_permissions": [
+    "*://sd63.onlinelearningbc.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://sd63.onlinelearningbc.com/d2l/le/activities/evaluation/*",
+        "*://sd63.onlinelearningbc.com/d2l/le/activities/iterator/*"
+      ],
+      "js": [
+        "content/utils.js",
+        "content/config.js",
+        "content/tinymce.js",
+        "content/detection.js",
+        "content/csv.js",
+        "content/modals.js",
+        "content/panel.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
